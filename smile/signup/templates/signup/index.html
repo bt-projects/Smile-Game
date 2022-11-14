@@ -1,0 +1,40 @@
+<style>
+    body {
+        text-align: center;
+    }
+    form {
+        display: inline-block;
+    }
+    .b-username, .b-password, .b-email {
+        margin-bottom: 2em;
+        font-size: 1.2em;
+    }
+    input {
+        height: 30px;
+    }
+    button {
+        height: 40px;
+        width: 120px;
+    }
+</style>
+
+<h1 class="title">Welcome to Smile Sign UP Page</h1>
+
+<form action="">
+    <div class="b-email">
+        <label for="">Email</label>
+        <input type="text" name="" id="">
+    </div>
+    <div class="b-username">
+        <label for="">Username</label>
+        <input type="text" name="" id="">
+    </div>
+    <div class="b-password">
+        <label for="">Password</label>
+        <input type="password" name="" id="">
+    </div>
+    <button>Sign UP</button>
+</form>
+
+<p>or</p>
+<a href="{% url 'login:index' %}">Login</a>
