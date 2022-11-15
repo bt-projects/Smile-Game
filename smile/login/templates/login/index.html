@@ -20,14 +20,19 @@
 
 <h1 class="title"> This is Login Template Index</h1>
 
-<form action="">
+<form action="" method="post">
+    {% csrf_token %}
+    <!-- <div class="b-username">
+        <label for="">Email</label>
+        <input type="email" name="email" id="">
+    </div> -->
     <div class="b-username">
         <label for="">Username</label>
-        <input type="text" name="" id="">
+        <input type="text" name="username" id="">
     </div>
     <div class="b-password">
         <label for="">Password</label>
-        <input type="password" name="" id="">
+        <input type="password" name="password" id="">
     </div>
     <button>Login</button>
 </form>
@@ -37,4 +42,9 @@
 
 {% for smileData in smile %}
 <p>{{ smileData.name }}</p>
+{% endfor %}
+
+
+{% for message in messages%}
+<h5>{{message}}</h5>
 {% endfor %}

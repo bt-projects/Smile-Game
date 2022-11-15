@@ -5,7 +5,7 @@
     form {
         display: inline-block;
     }
-    .b-username, .b-password, .b-email {
+    .b-firstname, .b-lastname, .b-username, .b-password1, .b-password2, .b-email {
         margin-bottom: 2em;
         font-size: 1.2em;
     }
@@ -20,21 +20,39 @@
 
 <h1 class="title">Welcome to Smile Sign UP Page</h1>
 
-<form action="">
-    <div class="b-email">
-        <label for="">Email</label>
-        <input type="text" name="" id="">
+<form action="signup" method="POST">
+    {% csrf_token %}
+    
+    <div class="b-firstname">
+        <label for="">First Name</label>
+        <input type="text" name="first_name" id="">
+    </div>
+    <div class="b-lastname">
+        <label for="">Last Name</label>
+        <input type="text" name="last_name" id="">
     </div>
     <div class="b-username">
         <label for="">Username</label>
-        <input type="text" name="" id="">
+        <input type="text" name="username" id="">
     </div>
-    <div class="b-password">
+    <div class="b-email">
+        <label for="">Email</label>
+        <input type="text" name="email" id="">
+    </div>
+    <div class="b-password1">
         <label for="">Password</label>
-        <input type="password" name="" id="">
+        <input type="password" name="password1" id="">
+    </div>
+    <div class="b-password2">
+        <label for="">Confirm Password</label>
+        <input type="password" name="password2" id="">
     </div>
     <button>Sign UP</button>
 </form>
 
 <p>or</p>
 <a href="{% url 'login:index' %}">Login</a>
+
+{% for message in messages %}
+    <h1>{{message}}</h1>
+{% endfor %}
