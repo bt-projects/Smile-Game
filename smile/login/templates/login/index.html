@@ -34,3 +34,7 @@
 
 <p>or</p>
 <a href="{% url 'signup:index' %}">Signup</a>
+
+{% for smileData in smile %}
+<p>{{ smileData.name }}</p>
+{% endfor %}
