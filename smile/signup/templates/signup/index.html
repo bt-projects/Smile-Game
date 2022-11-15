@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <style>
-        body {
-            text-align: center;
-        }
-        form {
-            display: inline-block;
-        }
-        .b-firstname, .b-lastname, .b-username, .b-password1, .b-password2, .b-email {
-            margin-bottom: 2em;
-            font-size: 1.2em;
-        }
-        input {
-            height: 30px;
-        }
-        button {
-            height: 40px;
-            width: 120px;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'signup/style.css' %}">
 </head>
 <body>
 
