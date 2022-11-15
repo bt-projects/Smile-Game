@@ -5,7 +5,7 @@ from .models import DemoSmile
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
-def index(request):
+def login(request):
     # template = loader.get_template('')
     smile = DemoSmile.objects.all()
     context = {

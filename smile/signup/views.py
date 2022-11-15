@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 # Create your views here.
-def index(request):
+def signup(request):
 
     if request.method == 'POST':
         first_name = request.POST['first_name']
