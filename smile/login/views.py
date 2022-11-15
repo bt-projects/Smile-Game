@@ -32,3 +32,7 @@ def index(request):
         return render(request, 'login/index.html')
 
     # return render(request, 'login/index.html', context)
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')

@@ -18,6 +18,15 @@
     }
 </style>
 
+{% if user.is_authenticated %}
+
+<h1>Hello{{user.first_name}}</h1>
+<a href="{% url 'login:logout' %}">Logout</a>
+{% else %}
+<a href="">Login</a>
+{% endif %}
+
+
 <h1 class="title"> This is Login Template Index</h1>
 
 <form action="" method="post">
