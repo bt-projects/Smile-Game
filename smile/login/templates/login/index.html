@@ -27,14 +27,36 @@
     </style>
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container">
+          <a class="navbar-brand text-light" href="/">Smile Game</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ">
+              <li class="nav-item">
+                <a class="nav-link  text-light active" aria-current="page" href="signup">Register Here</a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <!-- <a class="nav-link text-light" href="login">Login</a> -->
+                <a class="nav-link text-light" href="logout">Logout</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+    </nav>
     
-    {% if user.is_authenticated %}
+    <!-- {% if user.is_authenticated %}
 
     <h1>Hello{{user.first_name}}</h1>
     <a href="{% url 'login:logout' %}">Logout</a>
     {% else %}
     <a href="">Login</a>
-    {% endif %}
+    {% endif %} -->
 
 
     <h1 class="title"> This is Login Template Index</h1>
