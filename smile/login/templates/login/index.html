@@ -5,10 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="title">Smile Login</h3>
 
                 <form action="login" method="post">
                     {% csrf_token %}
+
+                    <h3 class="form-title">Login</h3>
 
                     <div class="b-username">
                         <!-- <label for="" class="form-label">Username</label> -->
@@ -22,8 +23,9 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
             
-                <p>or</p>
-                <a href="signup">Signup</a>
+                <hr>
+                
+                <p>Don't have an account? <a href="signup">Register</a></p>
             
                 <!-- {% for smileData in smile %}
                 <p>{{ smileData.name }}</p>

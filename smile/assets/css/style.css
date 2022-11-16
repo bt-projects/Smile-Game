@@ -23,6 +23,11 @@ img {
 
 form {
     display: inline-block;
+    margin: 3em 0;
+}
+
+.form-title {
+    margin-bottom: 1em;
 }
 
 /********************** SIGNUP ************************/
