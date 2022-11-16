@@ -1,0 +1,38 @@
+
+body {
+    text-align: center;
+}
+
+.login, .logout {
+    background: #524fff;
+    padding: 8px 22px!important;
+    border-radius: 2px;
+}
+
+/********************** HOMEPAGE ************************/
+.img-sec {
+    width: 600px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+/********************** LOGIN ************************/
+
+form {
+    display: inline-block;
+}
+
+/********************** SIGNUP ************************/
+
+.b-firstname, .b-lastname, .b-username, .b-password, .b-password1, .b-password2, .b-email {
+    margin-bottom: 2em;
+    font-size: 1.2em;
+}
+
+button {
+    height: 40px;
+    width: 120px;
+}

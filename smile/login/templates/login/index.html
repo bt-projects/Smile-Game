@@ -1,34 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="title"> This is Login Template Index</h1>
 
-    <form action="login" method="post">
-        {% csrf_token %}
-        <!-- <div class="b-username">
-            <label for="">Email</label>
-            <input type="email" name="email" id="">
-        </div> -->
-        <div class="b-username">
-            <label for="">Username</label>
-            <input type="text" name="username" id="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title"> This is Login Template Index</h1>
+
+                <form action="login" method="post">
+                    {% csrf_token %}
+                    <!-- <div class="b-username">
+                        <label for="">Email</label>
+                        <input type="email" name="email" id="">
+                    </div> -->
+                    <div class="b-username">
+                        <label for="" class="form-label">Username</label>
+                        <input class="form-control" type="text" name="username" id="" placeholder="username">
+                    </div>
+                    <div class="b-password">
+                        <label for="" class="form-label">Password</label>
+                        <input class="form-control" type="password" name="password" id="" placeholder="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            
+                <p>or</p>
+                <a href="signup">Signup</a>
+            
+                <!-- {% for smileData in smile %}
+                <p>{{ smileData.name }}</p>
+                {% endfor %} -->
+            
+            
+                {% for message in messages%}
+                <h5>{{message}}</h5>
+                {% endfor %}
+            </div>
         </div>
-        <div class="b-password">
-            <label for="">Password</label>
-            <input type="password" name="password" id="">
-        </div>
-        <button>Login</button>
-    </form>
+    </div>
 
-    <p>or</p>
-    <a href="signup">Signup</a>
-
-    <!-- {% for smileData in smile %}
-    <p>{{ smileData.name }}</p>
-    {% endfor %} -->
-
-
-    {% for message in messages%}
-    <h5>{{message}}</h5>
-    {% endfor %}
+    
 {% endblock %}
