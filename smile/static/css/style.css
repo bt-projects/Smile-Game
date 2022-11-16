@@ -28,7 +28,7 @@ form {
 /********************** SIGNUP ************************/
 
 .b-firstname, .b-lastname, .b-username, .b-password, .b-password1, .b-password2, .b-email {
-    margin-bottom: 2em;
+    margin-bottom: 1.2em;
     font-size: 1.2em;
 }
 
