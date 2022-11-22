@@ -5,17 +5,30 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
+                {% if user.is_anonymous %}
                 <div class="img-sec">
                     <img class="" src="https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="SMILE IMG">
                 </div>
-
-                {% if user.is_anonymous %}
                 <div class="text-center mt-4">
                     <a class="" href="login">Login to Play</button>
                 </div>
                 {% elif user.is_authenticated %}
                 <div class="text-center mt-4">
                     <h5>Welcome {{user.first_name}}</h5>
+                    <img id="api-img" class="bt-smile-img" src="{{smileJson.question}}" alt="SMILEIMG">
+                    <!-- <h5>{{smileJson.solution}}</h5> -->
+                    <hr>
+                    <input id="" type="number" name="checkValue" class="form-class" value="{{smileJson.solution}}" min="0" max="9" autofocus>
+                    
+                    <button class="btn btn-primary">Check</button>
+                    <hr/>
+                    <!-- <button id="next-btn" class="btn btn-primary" type="button" onclick="reload()">Next</button>
+                    
+                    <p>
+                        {{smileJson}}
+                    </p> -->
+
                 </div>
                 {% endif %}
                 
@@ -23,4 +36,16 @@
         </div>
     </div>
 </section>
+
+<script>
+    function reload(){
+        var container = document.getElementById("api-img");
+        var content = container.innerHTML;
+        //this line is to watch the result in console , you can remove it later	
+        console.log("Refreshed"); 
+
+        location.reload()
+    }
+
+</script>
 {% endblock %}
