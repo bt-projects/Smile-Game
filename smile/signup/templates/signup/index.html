@@ -6,36 +6,47 @@
     <div class="row">
         <div class="col-md-12">
 
-            <form action="signup" method="POST">
+            <!-- <form action="signup" method="POST"> -->
+            <form method="POST">
                 {% csrf_token %}
 
                 <h3 class="form-title">Create an Account</h3>
 
-                <div class="b-firstname">
-                    <!-- <label for="" class="form-label">First Name</label> -->
-                    <input type="text" name="first_name" id="" class="form-control" placeholder="first name" required>
+                <!-- <div class="b-firstname form-group"> -->
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="" class="form-label">First Name</label>
+                        <input type="text" name="first_name" id="" class="form-control" placeholder="first name" >
+                    </div>
+                    <div class="form-group col">
+                        <label for="" class="form-label">Last Name</label>
+                        <input type="text" name="last_name" id="" class="form-control" placeholder="last name" >
+                    </div>
                 </div>
-                <div class="b-lastname">
-                    <!-- <label for="" class="form-label">Last Name</label> -->
-                    <input type="text" name="last_name" id="" class="form-control" placeholder="last name" required>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="" class="form-label">Username</label>
+                        <input type="text" name="username" id="" class="form-control" placeholder="username" >
+                    </div>
                 </div>
-                <div class="b-username">
-                    <!-- <label for="" class="form-label">Username</label> -->
-                    <input type="text" name="username" id="" class="form-control" placeholder="username" required>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="" class="form-label">Email</label>
+                        <input type="text" name="email" id="" class="form-control" placeholder="email" >
+                    </div>
                 </div>
-                <div class="b-email">
-                    <!-- <label for="" class="form-label">Email</label> -->
-                    <input type="text" name="email" id="" class="form-control" placeholder="email" required>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="" class="form-label">Password</label>
+                        <input type="password" name="password1" id="" class="form-control" placeholder="password" >
+                    </div>
+                    <div class="form-group col">
+                        <label for="" class="form-label">Confirm Password</label>
+                        <input type="password" name="password2" id="" class="form-control" placeholder="confirm password" >
+                    </div>
                 </div>
-                <div class="b-password1">
-                    <!-- <label for="" class="form-label">Password</label> -->
-                    <input type="password" name="password1" id="" class="form-control" placeholder="password" required>
-                </div>
-                <div class="b-password2">
-                    <!-- <label for="" class="form-label">Confirm Password</label> -->
-                    <input type="password" name="password2" id="" class="form-control" placeholder="confirm password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign UP</button>
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
             </form>
         
             <hr>
@@ -44,7 +55,7 @@
             
         
             {% for message in messages %}
-                <h1>{{message}}</h1>
+                <h1 id="msg">{{message}}</h1>
             {% endfor %}
         </div>
     </div>

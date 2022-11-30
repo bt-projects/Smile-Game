@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'signup.apps.SignupConfig',
+    'resetpassword.apps.ResetpasswordConfig',
     'homepage.apps.HomepageConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,6 +130,18 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+# Email Settings
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_FROM = "bishowthapa33@gmail.com"
+EMAIL_HOST_USER = "bishowthapa33@gmail.com"
+EMAIL_HOST_PASSWORD = "igjrbcrqzmqudtjx"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 # Static files (CSS, JavaScript, Images)

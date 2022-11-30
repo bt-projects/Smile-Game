@@ -30,6 +30,11 @@ form {
     margin-bottom: 1em;
 }
 
+.form-group {
+    text-align: left;
+    margin-bottom: 1.2em;
+}
+
 /********************** SIGNUP ************************/
 
 .b-firstname, .b-lastname, .b-username, .b-password, .b-password1, .b-password2, .b-email {
@@ -39,7 +44,9 @@ form {
 
 button {
     height: 40px;
-    width: 120px;
+    /* width: 120px; */
+    padding: 0 2em!important;
+    margin-top: 0.8em;
 }
 
 /********************** AFTER LOGIN ************************/
@@ -47,4 +54,27 @@ button {
 .bt-smile-img {
     height: 400px!important;
     width: 400px!important;
+}
+
+/********************** HIDDEN BUTTON ************************/
+#nxtBtn {
+    /* display: none; */
+    visibility: hidden;
+}
+
+#result {
+    background: yellow;
+}
+
+/**************************************************************/
+#msg {
+    display: inline-block;
+    font-size: 0.9em;
+    color: #ffffff;
+    padding: .6em;
+    border-radius: 6px;
+    background: red;
+    position: absolute;
+    top: 90px;
+    right: 0;
 }

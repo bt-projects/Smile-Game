@@ -12,6 +12,11 @@ def login(request):
         'smile': smile
     }
 
+    # added
+    # if user is already logged in redirect to the homepage
+    if request.user.is_authenticated:
+        return redirect("/")
+
     if request.method == 'POST':
         # email = request.POST['email']
         username = request.POST['username']
@@ -22,11 +27,12 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            messages.info(request, 'sucessfull login')
+            # messages.info(request, 'sucessfull login')
             return redirect("/")
         else:
             messages.info(request, 'invalid credentails')
-            return redirect("/")
+            # return redirect("/")
+            return render(request, 'login/index.html')
     else:
         # return render(request, 'login/index.html')
         return render(request, 'login/index.html')
