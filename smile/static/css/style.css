@@ -67,13 +67,25 @@ button {
 }
 
 /**************************************************************/
-#msg {
+.bt-info {
     display: inline-block;
     font-size: 0.9em;
     color: #ffffff;
     padding: .6em;
     border-radius: 6px;
     background: red;
+    position: absolute;
+    top: 90px;
+    right: 0;
+}
+
+.bt-success {
+    display: inline-block;
+    font-size: 0.9em;
+    color: #ffffff;
+    padding: .6em;
+    border-radius: 6px;
+    background: rgb(48, 156, 48);
     position: absolute;
     top: 90px;
     right: 0;

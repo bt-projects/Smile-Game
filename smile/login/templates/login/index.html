@@ -38,7 +38,7 @@
                 -->
             
                     {% for message in messages%}
-                        <h5 id="msg">{{message}}</h5>
+                        <h5 class="bt-{{message.tags}}" id="msg">{{message}}</h5>
                     {% endfor %}
 
             </div>

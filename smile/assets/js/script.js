@@ -12,8 +12,3 @@ $(document).ready(function(){
 })
 
 //
-$(document).ready(function(){
-    $("form").submit(function(){
-      event.preventDefault();
-    });
-  });

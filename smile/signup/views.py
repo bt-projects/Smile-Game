@@ -31,7 +31,7 @@ def signup(request):
                 else:
                     user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
                     user.save()
-                    messages.info(request, 'Registered')
+                    messages.success(request, 'Registered')
             else:
                 messages.info(request, 'Password not matching')
             
