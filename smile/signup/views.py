@@ -3,33 +3,48 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
+from .forms import SignupForm
+
+
 def signup(request):
-
+    # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        username = request.POST['username']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
-        email = request.POST['email']
+        # create a form instance and populate it with data from the request:
+        form = SignupForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
 
-        if password1 == password2:
-            if User.objects.filter(email=email).exists():
-                messages.info(request, 'Email already taken')
-            elif User.objects.filter(username=username).exists():
-                messages.info(request, 'Username already taken')
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            username = form.cleaned_data['username']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
+            email = form.cleaned_data['email']
+
+
+            if password1 == password2:
+                if User.objects.filter(email=email).exists():
+                    messages.info(request, 'Email already taken')
+                elif User.objects.filter(username=username).exists():
+                    messages.info(request, 'Username already taken')
+                else:
+                    user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
+                    user.save()
+                    messages.info(request, 'Registered')
             else:
-                user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
-                user.save()
-                messages.info(request, 'Registered')
+                messages.info(request, 'Password not matching')
+            
+            # redirect to a new URL:
+            return redirect('/accounts/register')
+
+        # if the form is not valid
         else:
-            messages.info(request, 'Password not matching')
-            # return redirect('signup/index.html')
-            # return redirect('/accounts/register')
-        
-        # return redirect('/')
-        return redirect('/accounts/register')
-    
+            messages.info(request, 'form is not valid')
+
+    # if a GET (or any other method) we'll create a blank form
     else:
-        return render(request, 'signup/index.html')
-        # return render(request, '/accounts/register')
+        form = SignupForm()
+
+    return render(request, 'signup/index.html', {'form': form})
+
