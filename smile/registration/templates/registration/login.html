@@ -31,15 +31,10 @@
                 
                 <p>Don't have an account? <a href="{% url 'signup:signup' %}">Register</a></p>
             
-                <!-- 
-                    {% for smileData in smile %}
-                    <p>{{ smileData.name }}</p>
-                    {% endfor %} 
-                -->
-            
-                    {% for message in messages%}
-                        <h5 class="bt-{{message.tags}}" id="msg">{{message}}</h5>
-                    {% endfor %}
+                <!-- MESSAGE -->
+                {% for message in messages%}
+                    <h5 class="bt-{{message.tags}}" id="msg">{{message}}</h5>
+                {% endfor %}
 
             </div>
         </div>

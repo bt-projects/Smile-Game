@@ -12,7 +12,7 @@
                     <img class="" src="{% static 'images/photo-1553481187-be93c21490a9.jpg' %}" alt="SMILE IMG">
                 </div>
                 <div class="text-center mt-4">
-                    <a class="" href="{% url 'smilelogin:login' %}">Login to Play</button>
+                    <a class="" href="{% url 'login:login' %}">Login to Play</button>
                 </div>
                 {% elif user.is_authenticated %}
                 <div class="text-center mt-4">

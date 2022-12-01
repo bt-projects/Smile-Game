@@ -34,10 +34,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'login.apps.LoginConfig',
+    # 'login.apps.LoginConfig',
+    # 'resetpassword.apps.ResetpasswordConfig',
     'signup.apps.SignupConfig',
-    'resetpassword.apps.ResetpasswordConfig',
+    'registration.apps.RegistrationConfig',
     'homepage.apps.HomepageConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

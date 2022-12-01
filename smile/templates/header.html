@@ -26,11 +26,11 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                     <!-- <a class="nav-link text-light" href="login">Login</a> -->
-                        <a class="nav-link text-light logout" href="{% url 'smilelogin:logout'%}">Logout</a>
+                        <a class="nav-link text-light logout" href="{% url 'login:logout'%}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-light login" aria-current="page" href="{% url 'smilelogin:login' %}">Login</a>
+                        <a class="nav-link text-light login" aria-current="page" href="{% url 'login:login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
