@@ -51,7 +51,7 @@
         
             <hr>
 
-            <p>Have already an account? <a href="login">Login here</a></p>
+            <p>Have already an account? <a href="{% url 'login:login' %}">Login here</a></p>
             
         
             {% for message in messages %}
