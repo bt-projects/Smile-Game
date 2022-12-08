@@ -44,7 +44,7 @@ def activateEmail(request, user, to_email):
     })
     email = EmailMessage(mail_subject, message, to=[to_email])
     if email.send():
-        messages.success(request, f'Dear {user}, please go to you email {to_email} inbox and click on \
+        messages.success(request, f'Dear {user}, Registered, please go to you email {to_email} inbox and click on \
                 received activation link to confirm and complete the registration. Note: Check your spam folder.')
     else:
         messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
@@ -87,7 +87,7 @@ def signup(request):
                     activateEmail(request, user, form.cleaned_data.get('email'))
                     ################################
 
-                    messages.success(request, 'Registered')
+                    # messages.success(request, 'Registered')
             else:
                 messages.info(request, 'Password not matching')
             

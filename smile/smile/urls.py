@@ -21,12 +21,18 @@ app_name = 'smile'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    
     
     path('', include('homepage.urls')),
+
+    path('social-auth/', include('social_django.urls', namespace='social')),
 
     path('accounts/login/', include('registration.urls')),
     path('accounts/register/', include('signup.urls')),
 
     path('accounts/', include('django.contrib.auth.urls')),
+
+    
 
 ]

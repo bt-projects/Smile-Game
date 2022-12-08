@@ -25,8 +25,12 @@
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Login</button>
+
+                    <p class="my-0 pt-3">or</p>
+                    <!-- added for Oauth -->
+                    <button class="btn btn-dark"><a class="text-light" href="{% url 'social:begin' 'google-oauth2' %}">Continue with Google</a></h5></button>
                 </form>
-            
+
                 <hr>
                 
                 <p>Don't have an account? <a href="{% url 'signup:signup' %}">Register</a></p>

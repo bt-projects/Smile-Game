@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'signup.apps.SignupConfig',
     'registration.apps.RegistrationConfig',
     'homepage.apps.HomepageConfig',
+
+    'social_django',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -159,3 +161,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# social app custom settings
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '567089775272-6j6at5asesse8a8d5hrrku5m1sa04rq6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+LOGIN_REDIRECT_URL = '/'
