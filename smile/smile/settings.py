@@ -174,3 +174,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '567089775272-6j6at5asesse8a8d5hrrku5m1sa04rq6.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_REDIRECT_URL = '/'
+
+# Cookies added
+# Logout after a period of inactivity
+INACTIVE_TIME = 15*60  # 15 minutes - or whatever period you think appropriate
+# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+# SESSION_EXPIRE_AT_BROWSER_CLOSE= True
+SESSION_COOKIE_AGE = INACTIVE_TIME   # change expired session
+SESSION_IDLE_TIMEOUT = INACTIVE_TIME  # logout
