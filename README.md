@@ -35,8 +35,9 @@ Make sure to start your mysql in xampp before running your application
 ![Step2:](/smile/assets/images/sajklf92384092.PNG)
 ![Step3:](/smile/assets/images/kjas9w38r90w.PNG)
  
-### Google Developer Console for Oauth (3rd-party application)
+### Google Developer Console for OAuth (3rd-party application)
 [Google Developer Console](https://console.developers.google.com)
-
+![Step 1:](/smile/assets/images/googleconsole.PNG)
+![Step 2:](/smile/assets/images/googleconsole2.png)
 
 > Created by [Bishow Thapa](http://bishowthapa.com.np/) in Dec 20, 2022
