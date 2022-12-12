@@ -1,6 +1,11 @@
 # Smile-Game-
 This is a smile web based game using Django.
 
+![Homepage](/smile/assets/images/homepage.png)
+![Signup](/smile/assets/images/register.png)
+![Login](/smile/assets/images/login.png)
+![Game](/smile/assets/images/after-login-homepage.png)
+
 ## 1. Install all the requirement files in your computer by running:
 - `pip install -r requirements.txt`
 
