@@ -9,13 +9,18 @@ pip freeze outputs a list of all installed Python modules with their versions.
 
 ## 2. Create a database name "smile" in xampp
 
-## 3. Start your project
+## 3. Migrate table in your database
+
+- `py manage.py makemigrations`
+- `py manage.py migrate`
+
+## 4. Start your project
 
 - `py manage.py runserver`
 
 Make sure to start your mysql in xampp before running your application
 
-## 4. Additional
+## 5. Additional
  - Create superuser in django dashboard: `py manage.py createsuperuser`
  - After creating superuser you can directly login with superuser username and password:
  - Superuser can delete and update all the users who have signup in the smile.
