@@ -168,6 +168,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# OAuth (3rd party gmail authentication)
 ####################################################################################
 # social app custom settings
 AUTHENTICATION_BACKENDS = [
