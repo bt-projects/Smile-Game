@@ -39,5 +39,6 @@ Make sure to start your mysql in xampp before running your application
 [Google Developer Console](https://console.developers.google.com)
 ![Step 1:](/smile/assets/images/googleconsole.PNG)
 ![Step 2:](/smile/assets/images/googleconsole2.png)
+![Step 3:](/smile/assets/images/google%20console%20file.PNG)
 
 > Created by [Bishow Thapa](http://bishowthapa.com.np/) in Dec 20, 2022
