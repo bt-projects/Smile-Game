@@ -135,17 +135,23 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+# GOOGLE APP
+####################################################################################
 # Email Settings
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 # EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
+# Store your gmail
 EMAIL_FROM = "bishowthapa33@gmail.com"
 EMAIL_HOST_USER = "bishowthapa33@gmail.com"
+# Store your App generated password here
 EMAIL_HOST_PASSWORD = "igjrbcrqzmqudtjx"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+####################################################################################
 
 
 # Static files (CSS, JavaScript, Images)
@@ -162,7 +168,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+####################################################################################
 # social app custom settings
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
@@ -173,7 +179,8 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '567089775272-6j6at5asesse8a8d5hrrku5m1sa04rq6.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
-LOGIN_REDIRECT_URL = '/'
+####################################################################################
+
 
 # Cookies added
 # Logout after a period of inactivity
@@ -182,3 +189,6 @@ INACTIVE_TIME = 15*60  # 15 minutes - or whatever period you think appropriate
 # SESSION_EXPIRE_AT_BROWSER_CLOSE= True
 SESSION_COOKIE_AGE = INACTIVE_TIME   # change expired session
 SESSION_IDLE_TIMEOUT = INACTIVE_TIME  # logout
+
+
+LOGIN_REDIRECT_URL = '/'
