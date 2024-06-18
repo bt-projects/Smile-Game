@@ -14,24 +14,67 @@ from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from .tokens import account_activation_token
 
-def activate(request, uidb64, token):
-    User = get_user_model()
-    try:
-        uid = force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except:
-        user = None
 
-    if user is not None and account_activation_token.check_token(user, token):
-        user.is_active = True
-        user.save()
+def signup(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = SignupForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
 
-        messages.success(request, "Thank you for your email confirmation. Now you can login your account.")
-        return redirect('/accounts/login/')
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            username = form.cleaned_data['username']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
+            email = form.cleaned_data['email']
+
+
+            if password1 == password2:
+                if User.objects.filter(email=email).exists():
+                    messages.info(request, 'Email already taken')
+                elif User.objects.filter(username=username).exists():
+                    messages.info(request, 'Username already taken')
+                else:
+                    try:
+                        user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
+                        
+                        ################################ added
+                        # user1 = form.save(commit=False)
+                        user.is_active=False
+                        ################################
+
+                        user.save()
+
+                        ################################
+                        # activateEmail(request, user, form.cleaned_data.get('email'))
+                        ################################
+                        
+                        messages.success(request, 'Registration successful. Please check your email to activate your account.')
+                        # messages.success(request, 'Registered')
+                    except Exception as e:
+                        # logger.error(f'Error creating user: {e}')
+                        messages.error(request, 'An error occurred during registration. Please try again.')
+            else:
+                messages.info(request, 'Password not matching')
+            
+            # redirect to a new URL:
+            return redirect('/accounts/register')
+
+        # if the form is not valid
+        else:
+            messages.info(request, 'form is not valid')
+
+    # if a GET (or any other method) we'll create a blank form
     else:
-        messages.error(request, "Activation link is invalid!")
+        form = SignupForm()
 
-    return redirect('/')
+    return render(request, 'signup/index.html', {'form': form})
+
+
+########################################################################3
 
 def activateEmail(request, user, to_email):
     mail_subject = "Activate your user account."
@@ -59,56 +102,23 @@ def activateEmail(request, user, to_email):
 
 #################################################################################
 
-def signup(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = SignupForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
 
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            username = form.cleaned_data['username']
-            password1 = form.cleaned_data['password1']
-            password2 = form.cleaned_data['password2']
-            email = form.cleaned_data['email']
+def activate(request, uidb64, token):
+    User = get_user_model()
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except:
+        user = None
 
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
 
-            if password1 == password2:
-                if User.objects.filter(email=email).exists():
-                    messages.info(request, 'Email already taken')
-                elif User.objects.filter(username=username).exists():
-                    messages.info(request, 'Username already taken')
-                else:
-                    user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
-                    
-                    ################################ added
-                    # user1 = form.save(commit=False)
-                    user.is_active=False
-                    ################################
-
-                    user.save()
-
-                    ################################
-                    activateEmail(request, user, form.cleaned_data.get('email'))
-                    ################################
-
-                    # messages.success(request, 'Registered')
-            else:
-                messages.info(request, 'Password not matching')
-            
-            # redirect to a new URL:
-            return redirect('/accounts/register')
-
-        # if the form is not valid
-        else:
-            messages.info(request, 'form is not valid')
-
-    # if a GET (or any other method) we'll create a blank form
+        messages.success(request, "Thank you for your email confirmation. Now you can login your account.")
+        return redirect('/accounts/login/')
     else:
-        form = SignupForm()
+        messages.error(request, "Activation link is invalid!")
 
-    return render(request, 'signup/index.html', {'form': form})
+    return redirect('/')
 
