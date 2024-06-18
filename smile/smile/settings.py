@@ -10,23 +10,23 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from dotenv import load_dotenv
 from pathlib import Path
-
-## added
 import os
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tdv&59usua11k5bui7f+z5dx3@db^3g&(z%-!wfdvm#%bd7)+y'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'smile.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smile',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT':os.environ.get('DB_PORT'),
         'OPTIONS': {
             'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'
         }
@@ -139,18 +139,13 @@ USE_TZ = True
 # GOOGLE APP
 ####################################################################################
 # Email Settings
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-# EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-# Store your gmail
-EMAIL_FROM = "bishowthapa33@gmail.com"
-EMAIL_HOST_USER = "bishowthapa33@gmail.com"
-# Store your App generated password here
-EMAIL_HOST_PASSWORD = "igjrbcrqzmqudtjx"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_FROM = os.environ.get('EMAIL_FROM')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 ####################################################################################
 
 
@@ -177,8 +172,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '567089775272-6j6at5asesse8a8d5hrrku5m1sa04rq6.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 ####################################################################################
 
@@ -186,8 +181,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 # Cookies added
 # Logout after a period of inactivity
 INACTIVE_TIME = 15*60  # 15 minutes - or whatever period you think appropriate
-# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-# SESSION_EXPIRE_AT_BROWSER_CLOSE= True
 SESSION_COOKIE_AGE = INACTIVE_TIME   # change expired session
 SESSION_IDLE_TIMEOUT = INACTIVE_TIME  # logout
 
