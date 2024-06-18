@@ -8,7 +8,7 @@
             <div class="col-md-12">
 
                 <!-- <form action="signup" method="POST"> -->
-                <form method="post">
+                <form method="post" action="{% url 'signup:signup' %}">
                     {% csrf_token %}
 
                     <h3 class="form-title">Create an Account</h3>
