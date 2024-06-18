@@ -35,7 +35,7 @@ Make sure to start your mysql in xampp before running your application
 ### How to create a test app and generatre password in Google
 ![Step1:](/smile/assets/images/kajg948rn5r09385.PNG)
 ![Step2:](/smile/assets/images/sajklf92384092.PNG)
-![Step3:](/smile/assets/images/kjas9w38r90w.PNG)
+![Step3:](/smile/assets/images/kjas9w38r90w.png)
  
 ### Google Developer Console for OAuth (3rd-party application)
 [Google Developer Console](https://console.developers.google.com)
