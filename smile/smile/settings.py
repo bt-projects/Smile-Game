@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
 
     'social_django',
+    'django_recaptcha',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -188,3 +189,9 @@ SESSION_IDLE_TIMEOUT = INACTIVE_TIME  # logout
 
 
 LOGIN_REDIRECT_URL = '/'
+
+
+#RECAPTCHA
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_DOMAIN = 'www.recaptcha.net'
