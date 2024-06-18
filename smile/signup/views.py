@@ -9,7 +9,7 @@ from .forms import SignupForm
 from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, BadHeaderError
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from .tokens import account_activation_token
@@ -42,12 +42,20 @@ def activateEmail(request, user, to_email):
         'token': account_activation_token.make_token(user),
         "protocol": 'https' if request.is_secure() else 'http'
     })
+
     email = EmailMessage(mail_subject, message, to=[to_email])
-    if email.send():
-        messages.success(request, f'Dear {user}, Registered, please go to you email {to_email} inbox and click on \
-                received activation link to confirm and complete the registration. Note: Check your spam folder.')
-    else:
-        messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
+    
+    try:
+        if email.send():
+            messages.success(request, f'Dear {user}, Registered, please go to you email {to_email} inbox and click on \
+                    received activation link to confirm and complete the registration. Note: Check your spam folder.')
+        else:
+            messages.error(request, f'Problem sending email to {to_email}, check if you typed it correctly.')
+    except BadHeaderError:
+        messages.error(request, 'Invalid header found.')
+    except Exception as e:
+        messages.error(request, f'An error occurred: {e}')
+        # logger.error(f'Error sending activation email: {e}')
 
 #################################################################################
 

@@ -34,7 +34,6 @@ urlpatterns = [
 if settings.DEBUG:
     admin_url = 'admin/'
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += [path('__debug__/', include('debug_toolbar.urls'))]
 else:
     admin_url = 'smileadmin/'
     urlpatterns += [
