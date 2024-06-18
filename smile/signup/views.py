@@ -54,14 +54,17 @@ def signup(request):
                         
                         messages.success(request, 'Registration successful. Please check your email to activate your account.')
                         # messages.success(request, 'Registered')
+                        
+                        # redirect to a new URL:
+                        # return redirect('/accounts/register/')
+                        return redirect('login')
                     except Exception as e:
                         # logger.error(f'Error creating user: {e}')
                         messages.error(request, 'An error occurred during registration. Please try again.')
             else:
                 messages.info(request, 'Password not matching')
             
-            # redirect to a new URL:
-            return redirect('/accounts/register')
+            
 
         # if the form is not valid
         else:
