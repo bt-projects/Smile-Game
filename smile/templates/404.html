@@ -1,3 +1,37 @@
-<a href="{% url 'homepage:home' %}"> Go Back </a>
+{% load static %}
 
-this is 404 page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Game</title>
+    <style>
+        .btn-404 {
+            color: #FFFFFF;
+            background: #4a45ff;
+            padding: 10px 20px;
+            border-radius: 2em;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-family: system-ui, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<section style="display: flex; justify-content: center;">
+    <div style="width: 60%;">
+        <img src="{% static 'images/6333074.jpg' %}" alt="404 page" width="100%" />
+        <div style="text-align: center; margin-top: 1em;">
+            <a class="btn-404" href="{% url 'homepage:home' %}">Go Back Home</a>
+        </div>
+    </div>
+    
+</section>
+</body>
+</html>
+
+

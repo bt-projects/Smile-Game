@@ -23,8 +23,6 @@ from django.views.static import serve
 app_name = 'smile'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
     path('', include('homepage.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('accounts/login/', include('registration.urls')),
@@ -34,13 +32,20 @@ urlpatterns = [
 
 
 if settings.DEBUG:
+    admin_url = 'admin/'
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += [path('__debug__/', include('debug_toolbar.urls'))]
 else:
+    admin_url = 'smileadmin/'
     urlpatterns += [
         re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
         re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     ]
+
+
+urlpatterns += [
+    path(admin_url, admin.site.urls)
+]
 
 
 print(settings.DEBUG)
