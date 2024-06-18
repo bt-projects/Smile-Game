@@ -49,7 +49,7 @@ def signup(request):
                         user.save()
 
                         ################################
-                        # activateEmail(request, user, form.cleaned_data.get('email'))
+                        activateEmail(request, user, form.cleaned_data.get('email'))
                         ################################
                         
                         messages.success(request, 'Registration successful. Please check your email to activate your account.')
