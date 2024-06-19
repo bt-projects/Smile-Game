@@ -46,6 +46,3 @@ urlpatterns += [
     path(admin_url, admin.site.urls)
 ]
 
-
-print(settings.DEBUG)
-print(type(settings.DEBUG))
