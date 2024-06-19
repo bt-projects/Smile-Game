@@ -34,21 +34,21 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'login.apps.LoginConfig',
-    # 'resetpassword.apps.ResetpasswordConfig',
-    'signup.apps.SignupConfig',
-    'registration.apps.RegistrationConfig',
-    'homepage.apps.HomepageConfig',
-
-    'social_django',
-    'django_recaptcha',
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'social_django',
+    'django_recaptcha',
+
+    # 'login.apps.LoginConfig',
+    # 'resetpassword.apps.ResetpasswordConfig',
+    'signup.apps.SignupConfig',
+    'registration.apps.RegistrationConfig',
+    'homepage.apps.HomepageConfig',
 ]
 
 MIDDLEWARE = [
